@@ -46,21 +46,20 @@ $(document).ready(function () {
   };
 
   function saveMessage() {
-    let savedMess = [];
     for (let i = 0; i < timeCard.length; i++) {
       // Save typed message in Local Storage
       let input = $(".input" + (9 + i));
       let saveButton = $("#save" + (9 + i));
 
       saveButton.on("click", function() {
-        saved = localStorage.setItem(
+        localStorage.setItem(
           "input" + (9 + i),
-          JSON.stringify(input.val())
+          input.val()
         );
       });
 
+      // Display from Local Storaga
       input.text(localStorage.getItem("input" + (9 + i)));
-      console.log(savedMess);
     };
   };
 });
